@@ -11,6 +11,7 @@ import {
   SiRabbitmq, SiApachekafka, SiTypescript, SiJavascript 
 } from "react-icons/si";
 import { TbBrandCSharp, TbSql, TbServerCog, TbApi, TbLayersIntersect, TbChartBar } from "react-icons/tb";
+import ScrollReveal from "./ScrollReveal";
 
 const TechIcon = ({ name }: { name: string }) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -117,18 +118,21 @@ export default function SkillsSection() {
   return (
     <section id="skills" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-violet-500 dark:text-violet-400 text-sm font-semibold tracking-widest uppercase mb-3">{sk.tag}</p>
-          <h2 className="section-heading gradient-text">{sk.title}</h2>
-          <p className="section-subheading">{sk.subtitle}</p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <p className="text-violet-500 dark:text-violet-400 text-sm font-semibold tracking-widest uppercase mb-3">{sk.tag}</p>
+            <h2 className="section-heading gradient-text">{sk.title}</h2>
+            <p className="section-subheading">{sk.subtitle}</p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid md:grid-cols-2 gap-6">
           {skillData.map((cat, i) => {
             const Icon = cat.icon;
             return (
-              <div key={i} className="glass gradient-border rounded-2xl p-6 card-hover">
-                <div className="flex items-center gap-3 mb-5">
+              <ScrollReveal key={i} direction="up" delay={i * 0.1} className="h-full">
+                <div className="glass gradient-border rounded-2xl p-6 card-hover h-full">
+                  <div className="flex items-center gap-3 mb-5">
                   <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${cat.gradient} flex items-center justify-center shadow-lg border border-white/10`}>
                     <Icon size={20} className="text-white drop-shadow-md" />
                   </div>
@@ -145,13 +149,16 @@ export default function SkillsSection() {
                   ))}
                 </div>
               </div>
+              </ScrollReveal>
             );
           })}
         </div>
 
-        <div className="mt-12 glass gradient-border rounded-2xl p-6 text-center">
-          <p className="text-sm font-medium" style={{ color: "var(--text-muted)" }}>{sk.learningNote}</p>
-        </div>
+        <ScrollReveal direction="up" delay={0.4}>
+          <div className="mt-12 glass gradient-border rounded-2xl p-6 text-center">
+            <p className="text-sm font-medium" style={{ color: "var(--text-muted)" }}>{sk.learningNote}</p>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

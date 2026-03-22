@@ -2,6 +2,7 @@
 
 import { Github, ExternalLink } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
+import ScrollReveal from "./ScrollReveal";
 
 const projects = [
   {
@@ -106,18 +107,21 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-violet-500 dark:text-violet-400 text-sm font-semibold tracking-widest uppercase mb-3">{pr.tag}</p>
-          <h2 className="section-heading gradient-text">{pr.title}</h2>
-          <p className="section-subheading">{pr.subtitle}</p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <p className="text-violet-500 dark:text-violet-400 text-sm font-semibold tracking-widest uppercase mb-3">{pr.tag}</p>
+            <h2 className="section-heading gradient-text">{pr.title}</h2>
+            <p className="section-subheading">{pr.subtitle}</p>
+          </div>
+        </ScrollReveal>
 
         <div className="space-y-8">
           {/* Featured */}
-          {projects.filter((p) => p.featured).map((p) => (
-            <div key={p.title} className="glass gradient-border rounded-3xl p-8 card-hover relative overflow-hidden">
-              <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl opacity-40 pointer-events-none"
-                style={{ background: `radial-gradient(circle, ${p.glowColor}30, transparent)` }} />
+          {projects.filter((p) => p.featured).map((p, i) => (
+            <ScrollReveal key={p.title} direction="up" delay={i * 0.1}>
+              <div className="glass gradient-border rounded-3xl p-8 card-hover relative overflow-hidden">
+                <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl opacity-40 pointer-events-none"
+                  style={{ background: `radial-gradient(circle, ${p.glowColor}30, transparent)` }} />
 
               <div className="relative z-10">
                 <div className="flex items-start gap-3 mb-4 flex-wrap">
@@ -163,14 +167,16 @@ export default function ProjectsSection() {
                 </div>
               </div>
             </div>
+            </ScrollReveal>
           ))}
 
           {/* Grid */}
           <div className="grid md:grid-cols-2 gap-6">
-            {projects.filter((p) => !p.featured).map((p) => (
-              <div key={p.title} className="glass gradient-border rounded-2xl p-6 card-hover relative overflow-hidden flex flex-col">
-                <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full blur-2xl opacity-40 pointer-events-none"
-                  style={{ background: `radial-gradient(circle, ${p.glowColor}30, transparent)` }} />
+            {projects.filter((p) => !p.featured).map((p, i) => (
+              <ScrollReveal key={p.title} direction="up" delay={i * 0.1} className="h-full">
+                <div className="glass gradient-border rounded-2xl p-6 card-hover relative overflow-hidden flex flex-col h-full">
+                  <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full blur-2xl opacity-40 pointer-events-none"
+                    style={{ background: `radial-gradient(circle, ${p.glowColor}30, transparent)` }} />
 
                 <div className="relative z-10 flex-1 flex flex-col">
                   <div className="flex items-start gap-3 mb-3">
@@ -213,6 +219,7 @@ export default function ProjectsSection() {
                   </div>
                 </div>
               </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

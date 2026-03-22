@@ -21,7 +21,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <p className="text-sm flex items-center gap-1.5" style={{ color: "var(--text-muted)" }}>
+          {/* <p className="text-sm flex items-center gap-1.5" style={{ color: "var(--text-muted)" }}>
             {t.footer.builtWith}{" "}
             <Heart size={13} className="text-rose-500 fill-rose-500" />
             {" "}{t.footer.using}{" "}
@@ -30,7 +30,7 @@ export default function Footer() {
             <span style={{ color: "var(--text-body)" }}>TailwindCSS</span>
             {" "}·{" "}
             <span style={{ color: "var(--text-body)" }}>Three.js</span>
-          </p>
+          </p> */}
 
           <div className="flex items-center gap-4">
             <a href="https://github.com/ferr2764" target="_blank" rel="noopener noreferrer"

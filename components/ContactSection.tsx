@@ -2,6 +2,7 @@
 
 import { Mail, Phone, Github, MapPin, MessageSquare } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
+import ScrollReveal from "./ScrollReveal";
 
 export default function ContactSection() {
   const { t } = useLanguage();
@@ -45,17 +46,20 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-violet-500 dark:text-violet-400 text-sm font-semibold tracking-widest uppercase mb-3">{co.tag}</p>
-          <h2 className="section-heading gradient-text">{co.title}</h2>
-          <p className="section-subheading">{co.subtitle}</p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <p className="text-violet-500 dark:text-violet-400 text-sm font-semibold tracking-widest uppercase mb-3">{co.tag}</p>
+            <h2 className="section-heading gradient-text">{co.title}</h2>
+            <p className="section-subheading">{co.subtitle}</p>
+          </div>
+        </ScrollReveal>
 
         <div className="max-w-4xl mx-auto">
           {/* CTA Banner */}
-          <div className="glass gradient-border rounded-3xl p-10 text-center mb-10 relative overflow-hidden">
-            <div className="absolute -top-20 -left-20 w-64 h-64 bg-violet-600/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+          <ScrollReveal direction="up" delay={0.1}>
+            <div className="glass gradient-border rounded-3xl p-10 text-center mb-10 relative overflow-hidden">
+              <div className="absolute -top-20 -left-20 w-64 h-64 bg-violet-600/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative z-10">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-600 to-cyan-500 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-violet-500/30 glow">
@@ -76,22 +80,25 @@ export default function ContactSection() {
               </a>
             </div>
           </div>
+          </ScrollReveal>
 
           {/* Contact Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {contacts.map(({ icon: Icon, gradient, label, value, href, desc }) => {
+            {contacts.map(({ icon: Icon, gradient, label, value, href, desc }, i) => {
               const inner = (
-                <div className="glass gradient-border rounded-2xl p-5 text-center card-hover h-full flex flex-col items-center gap-3">
-                  <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center shadow-lg`}>
+                <ScrollReveal direction="up" delay={0.2 + i * 0.1} className="h-full">
+                  <div className="glass gradient-border rounded-2xl p-5 text-center card-hover h-full flex flex-col items-center gap-3">
+                    <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center shadow-lg`}>
                     <Icon size={20} className="text-white" />
                   </div>
                   <div>
                     <p className="text-xs font-semibold tracking-widest uppercase mb-0.5" style={{ color: "var(--text-muted)" }}>{label}</p>
-                    <p className="font-medium text-sm truncate max-w-[130px]" style={{ color: "var(--text-h)" }}>{value}</p>
+                    <p className="font-medium text-[13px] sm:text-sm break-all" style={{ color: "var(--text-h)" }}>{value}</p>
                     <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)", opacity: 0.7 }}>{desc}</p>
                   </div>
                 </div>
-              );
+              </ScrollReveal>
+            );
 
               return href ? (
                 <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined}

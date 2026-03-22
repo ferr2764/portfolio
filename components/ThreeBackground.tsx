@@ -50,14 +50,14 @@ export default function ThreeBackground() {
       particleGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
       const isDark = theme === "dark";
-      const dotColor = isDark ? 0x8b5cf6 : 0x60a5fa; // violet-500 or blue-400
-      const lineColor = isDark ? 0x8b5cf6 : 0x93c5fd; // violet-500 or blue-300
+      const dotColor = isDark ? 0xa78bfa : 0x60a5fa; // violet-400 or blue-400
+      const lineColor = isDark ? 0xc084fc : 0x93c5fd; // purple-400 or blue-300
 
       const particleMat = new THREE.PointsMaterial({
-        size: isDark ? 3 : 4,
+        size: isDark ? 3.5 : 4,
         color: dotColor,
         transparent: true,
-        opacity: isDark ? 0.7 : 0.6,
+        opacity: isDark ? 0.9 : 0.6,
         sizeAttenuation: false,
       });
 
@@ -72,7 +72,7 @@ export default function ThreeBackground() {
       const lineMat = new THREE.LineBasicMaterial({
         color: lineColor,
         transparent: true,
-        opacity: isDark ? 0.2 : 0.35,
+        opacity: isDark ? 0.4 : 0.35,
       });
 
       const lines = new THREE.LineSegments(lineGeo, lineMat);
