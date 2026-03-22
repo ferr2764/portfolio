@@ -55,9 +55,9 @@
   --text-h: #ffffff;
   --text-body: #a3a3a3;
   --text-muted: #737373;
-  --skill-bg: rgba(255, 255, 255, 0.05);
-  --skill-border: rgba(255, 255, 255, 0.1);
-  --skill-text: #e5e5e5;
+  --skill-bg: rgba(139, 92, 246, 0.15); /* violet-500/15 */
+  --skill-border: rgba(139, 92, 246, 0.3); /* violet-500/30 */
+  --skill-text: #c4b5fd; /* violet-300 */
   --divider: rgba(255, 255, 255, 0.1);
 }
 
@@ -235,13 +235,8 @@
   }
 
   .skill-badge:hover {
-    background: rgba(124, 58, 237, 0.15);
-    border-color: rgba(124, 58, 237, 0.35);
-    color: #7c3aed;
-  }
-
-  .dark .skill-badge:hover {
-    color: #c4b5fd;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
   }
 
   .card-hover {

@@ -68,7 +68,7 @@ const TechIcon = ({ name }: { name: string }) => {
 
   const IconComp = IconMap[name];
   if (!IconComp) return <span className="mr-1.5 opacity-60">•</span>;
-  return <IconComp className="mr-1.5 text-[1.1em] text-violet-500/80 dark:text-violet-400/80 drop-shadow-sm transition-colors group-hover:text-violet-600 dark:group-hover:text-violet-300" />;
+  return <IconComp className="mr-1.5 text-[1.1em] text-violet-500/80 dark:text-violet-400/80 drop-shadow-sm transition-all" />;
 };
 
 const skillData = [
@@ -142,7 +142,7 @@ export default function SkillsSection() {
                 </div>
                 <div className="flex flex-wrap gap-2.5">
                   {cat.skills.map((s) => (
-                    <span key={s} className="skill-badge group flex items-center hover:shadow-md hover:bg-violet-500/10 hover:border-violet-500/30">
+                    <span key={s} className="skill-badge flex items-center">
                       <TechIcon name={s} />
                       <span className="font-medium">{s}</span>
                     </span>

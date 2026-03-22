@@ -67,14 +67,22 @@ export default function HeroSection() {
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/8 rounded-full blur-3xl animate-float" style={{ animationDelay: "-3s" }} />
-        <div
-          className="absolute inset-0 opacity-[0.025] dark:opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(oklch(0 0 0 / 60%) 1px, transparent 1px), linear-gradient(90deg, oklch(0 0 0 / 60%) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
+        <div className="absolute inset-0 z-0">
+          <div
+            className="absolute inset-0 opacity-[0.03] dark:hidden"
+            style={{
+              backgroundImage: "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)",
+              backgroundSize: "60px 60px",
+            }}
+          />
+          <div
+            className="absolute inset-0 hidden dark:block opacity-[0.03]"
+            style={{
+              backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+              backgroundSize: "60px 60px",
+            }}
+          />
+        </div>
       </div>
 
       <div className="max-w-6xl mx-auto px-6 pt-24 pb-16 text-center relative z-10">
